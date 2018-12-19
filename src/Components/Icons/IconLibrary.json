@@ -1,0 +1,38 @@
+{
+  "Dine": {
+    "iconName": "food-fork-drink",
+    "iconLibrary": "MaterialCommunityIcons"
+  },
+  "Shop": {
+    "iconName": "shoppingcart",
+    "iconLibrary": "AntDesign"
+  },
+  "Play": {
+    "iconName": "bike",
+    "iconLibrary": "MaterialCommunityIcons"
+  },
+  "Services": {
+    "iconName": "briefcase-outline",
+    "iconLibrary": "MaterialCommunityIcons"
+  },
+  "Tours": {
+    "iconName": "map-o",
+    "iconLibrary": "FontAwesome"
+  },
+  "Culture": {
+    "iconName": "landscape",
+    "iconLibrary": "MaterialIcons"
+  },
+  "Visit": {
+    "iconName": "ios-bed",
+    "iconLibrary": "Ionicons"
+  },
+  "Events": {
+    "iconName": "calendar",
+    "iconLibrary": "FontAwesome"
+  },
+  "About": {
+    "iconName": "food-fork-drink",
+    "iconLibrary": "MaterialCommunityIcons"
+  }
+}
