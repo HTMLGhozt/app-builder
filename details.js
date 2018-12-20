@@ -1,4 +1,35 @@
 
+export const History = [{
+  name: 'History',
+  description: `
+    Discovery, 1877
+
+    Fort Huachuca was established as a Army post in March of 1877, and that summer, within weeks of each other, mining claims were filed at what was to become Tombstone and what would be Bisbee.
+
+    In Tombstone, discovery was planned; in Bisbee, it was serendipity. An Army troop looking for Apaches found cerrusite, a lead ore often associated with silver. The troop was led by Lt. Anthony Rucker, and the claim would be named in his honor. The scout for the expedition, Jack Dunn, was looking for fresh water, found it, and was heading back down-canyon with the news when he came a piece of "float," or ore that had been tumbled downhill by seasonal floodwaters. 
+
+    The claim was filed in Tucson by Rucker, Dunn and T.D. Byrne. (This was still part of Pima County at the time, so the claim was filed in the county seat.) Later, back at Fort Bowie, the men grubstaked (hired, in a sense) one George Warren to come back to the Mule Pass Mountains and file additional claims, sharing the ownership among the four of them.
+
+    Warren set off for Tucson, the nearest town, and apparently spent his grubstake on drinks for men who would listen to his wild tales of the riches in the mountains to the south -- and he was very good at storytelling. Many joined him in his trek to Bisbee, making it much safer in Apacheland, and over the next month many claims were filed. None had a share for the original discoverers.
+
+    One of the first to make his way to the Mule (Pass was soon deleted from the name) Mountains was D.B. Rea, a lawyer from New Mexico who had been involved in other mines-in-the-making in southern Arizona. One of the names given this new locale was Warren and Rea's Camp, but it soon was generally known as Mule Gulch, the name of the deep wash that cuts through today's Tombstone Canyon to carry off floodwaters.
+
+    Little significant work would be done by those early prospectors, who didn't find silver in any significant qualtities. The mining of copper ore would have to await men with more capital.
+
+    James Douglas comes to town
+
+    Capital from San Francisco and the East soon made its way to the town which would become Bisbee. Its name came with the San Francisco money, arranged by the firm of Bisbee, Williams & Co. John Williams provided two sons, Ben and Lewis, who would run the mines and smelter through the end of the century, and the senior partner, D.W.F Bisbee, gave his expertise and his name.
+
+    In 1882 came James Douglas, who operated a copper refinery in Pennsylvania and who served as a consultant for the Phelps, Dodge family company, which wanted to get into copper mining and processing. He would invest in mines in both Bisbee and Morenci (in eastern Arizona), taking a 10% interest in the Bisbee mines as his payment.
+
+    The two major companies operating in Bisbee, the original Copper Queen and the Phelps, Dodge mine, known as the Atlanta, intersected a major orebody at the same time, and rather than fighting over ownership, merged in the Copper Queen Consolidated Mining Co., with Douglas in control and the Williams brothers running the operations.
+
+    To reduce operating costs in a tight copper market, Douglas doubled Bisbee's production. Shortly thereafter, a French syndicate attempted to corner the market on copper and with the increased price that brought, Bisbee boomed. At the end of the 1880s, Douglas built a railroad into the canyon and Bisbee boomed further. There was even the demand for fresh-seafood restaurants!
+
+    Douglas, a polymath who had trained for ministry, treated Bisbee not just as a business venture, but almost as a parish, providing services such as a library, recreation facilities, social organizations, a company store and more. The city not only was fabulously wealthy, but was a social haven, thanks in large part to Douglas' benevolence.
+  `,
+}];
+
 export default [
   {
     name: 'Queen Mine Tour',

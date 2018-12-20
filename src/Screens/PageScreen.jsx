@@ -32,7 +32,7 @@ class PageScreen extends React.Component {
   }
 
   handleCall = (url) => {
-    const phonePreface = 'tel:'; // = Platform.OS === 'ios' ? 'telprompt:' : 'tel:';
+    const phonePreface = Platform.OS === 'ios' ? 'telprompt:' : 'tel:';
     return phonePreface + url;
   }
 
@@ -48,7 +48,7 @@ class PageScreen extends React.Component {
       },
     } = this.props;
     return (
-      <ScrollView>
+      <ScrollView scrollsToTop={false}>
         <View>
           <Text>{name}</Text>
           <TouchableHighlight onPress={() => this.handleLink('tel', phone)}>

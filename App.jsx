@@ -1,20 +1,26 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
 import HomeScreen from './src/Screens/HomeScreen';
 import ListBuilder from './src/Components/ListBuilder';
 import PageBuilder from './src/Components/PageBuilder';
-// import DetailsScreen from './src/Screens/DetailsScreen';
+
+import details, { History } from './details';
 
 export const pages = ['Dine', 'Shop', 'Play'];
 
 const routes = {
   Home: HomeScreen,
-  ...ListBuilder(pages),
-  ...PageBuilder(),
+  ...ListBuilder(pages, details),
+  ...PageBuilder(details),
 };
 
-const AppNavigator = createStackNavigator(
+const AppStackNavigator = createStackNavigator(
   routes, { initialRouteName: 'Home' },
 );
+
+const AppNavigator = createBottomTabNavigator({
+  Home: AppStackNavigator,
+  ...PageBuilder(History),
+});
 
 export default createAppContainer(AppNavigator);

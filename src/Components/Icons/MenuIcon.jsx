@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 8,
     borderWidth: 4,
-    borderColor: 'black',
+    borderColor: 'white',
     margin: '2%',
     padding: 5,
   },
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: 'white',
   },
 });
 
@@ -32,7 +33,7 @@ class MenuIcon extends React.Component {
   buildIcon = () => {
     const { iconLibrary, iconName } = this.props;
     const IconElement = Icons[iconLibrary];
-    return <IconElement name={iconName} size={50} color="black" />;
+    return <IconElement name={iconName} size={50} color="white" />;
   }
 
   handlePress = () => {
