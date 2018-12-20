@@ -7,8 +7,10 @@ import {
   StyleSheet,
   ImageBackground,
   View,
+  TextInput,
 } from 'react-native';
 
+import details from '../../details';
 import backgroundImage from '../../assets/splash.jpg';
 
 const styles = StyleSheet.create({
@@ -43,9 +45,19 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     textAlign: 'center',
   },
+  textInput: {
+    backgroundColor: 'white',
+    fontSize: 20,
+    opacity: 0.5,
+    height: 40,
+  },
 });
 
-class ListScreen extends React.PureComponent {
+class SearchScreen extends React.Component {
+  state = {
+    text: '',
+  }
+
   handleClick = (page) => {
     const { navigation } = this.props;
     navigation.navigate(page.replace(/[^a-zA-z]/g, ''));
@@ -63,9 +75,25 @@ class ListScreen extends React.PureComponent {
     </View>
   )
 
-  render() {
-    const { pages, title } = this.props;
+  getFilteredList = () => {
+    const { text } = this.state;
+    if (text.length) {
+      return details
+        .filter((page) => {
+          if (page && typeof page.name === 'string') {
+            // `.toLowerCase` allows search to ignore case.
+            return page.name.toLowerCase().includes(text.toLowerCase());
+          }
+          return false;
+        })
+        .map(page => page.name);
+    }
+    return [];
+  }
 
+  render() {
+    const { text } = this.state;
+    const filteredList = this.getFilteredList();
     return (
       <ScrollView
         scrollsToTop={false}
@@ -78,16 +106,25 @@ class ListScreen extends React.PureComponent {
           blurRadius={15}
         >
           <View style={{ ...styles.overlay, opacity: 0.35 }} />
-          <Text style={styles.title}>{title}</Text>
-          <FlatList
-            contentContainerStyle={{ flexGrow: 1 }}
-            data={pages}
-            renderItem={this.renderItem}
+          <Text style={styles.title}>Search</Text>
+          <TextInput
+            onChangeText={changedText => this.setState({ text: changedText })}
+            value={text.length ? text : ''}
+            style={styles.textInput}
           />
+          {(text && filteredList)
+            ? (
+              <FlatList
+                contentContainerStyle={{ flexGrow: 1 }}
+                data={filteredList}
+                renderItem={this.renderItem}
+              />
+            ) : <React.Fragment></React.Fragment>
+          }
         </ImageBackground>
       </ScrollView>
     );
   }
 }
 
-export default ListScreen;
+export default SearchScreen;

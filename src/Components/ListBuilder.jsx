@@ -10,11 +10,18 @@ const ListBuilder = (categories, details) => {
     const pagesFiltered = details
       .filter(page => page.category === category)
       .map(page => page.name);
+
     return {
       ...accumilator,
-      [category]: ({ navigation }) => (
-        <ListScreen navigation={navigation} pages={pagesFiltered} />
-      ),
+      [category]: {
+        screen: ({ navigation }) => (
+          <ListScreen
+            navigation={navigation}
+            title={category}
+            pages={pagesFiltered}
+          />
+        ),
+      },
     };
   }, {});
 };

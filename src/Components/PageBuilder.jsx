@@ -7,7 +7,8 @@ import PageScreen from '../Screens/PageScreen';
 // eslint-disable-next-line arrow-body-style
 const PageBuilder = (details) => {
   return details.reduce((accumilator, page) => {
-    const pageName = page.name.replace(' ', '');
+    const pageName = page.name.replace(/[^a-zA-z]/g, '');
+
     return {
       ...accumilator,
       [pageName]: ({ navigation }) => (

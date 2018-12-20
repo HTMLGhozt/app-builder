@@ -6,14 +6,39 @@ import {
   ScrollView,
   Platform,
   Linking,
-  // StyleSheet,
+  StyleSheet,
+  Image,
 } from 'react-native';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { FontAwesome, SimpleLineIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import Markdown from 'react-native-markdown-renderer';
 
-class PageScreen extends React.Component {
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 25,
+    padding: 5,
+    marginBottom: 10,
+  },
+  clickableText: {
+    fontSize: 15,
+    paddingBottom: 5,
+    paddingLeft: 10,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    width: '100%',
+    height: '100%',
+  },
+});
+
+class PageScreen extends React.PureComponent {
   handleLink = (type, url) => {
     let newURL = '';
     switch (type) {
+      case 'map':
+        newURL = this.handleMap();
+        break;
       case 'tel':
         newURL = this.handleCall(url);
         break;
@@ -31,8 +56,20 @@ class PageScreen extends React.Component {
     });
   }
 
+  handleMap = () => {
+    const {
+      page: { latLng, name },
+    } = this.props;
+
+    return Platform.select({
+      ios: `maps:0,0?q=${name}@${latLng}`,
+      android: `geo:0,0?q=${latLng}(${name})`,
+    });
+  }
+
   handleCall = (url) => {
-    const phonePreface = Platform.OS === 'ios' ? 'telprompt:' : 'tel:';
+    const phonePreface = Platform
+      .select({ ios: 'telprompt:', android: 'tel:' });
     return phonePreface + url;
   }
 
@@ -42,24 +79,47 @@ class PageScreen extends React.Component {
         name,
         description,
         website,
-        // address,
+        address,
         phone,
         // operationHours,
+        image,
       },
     } = this.props;
+
     return (
-      <ScrollView scrollsToTop={false}>
-        <View>
-          <Text>{name}</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>{name}</Text>
+        {phone && (
           <TouchableHighlight onPress={() => this.handleLink('tel', phone)}>
-            <Text>{phone}</Text>
+            <Text style={styles.clickableText}>
+              <FontAwesome name="phone" size={15} />
+              {`  ${phone}`}
+            </Text>
           </TouchableHighlight>
+        )}
+        {website && (
           <TouchableHighlight onPress={() => this.handleLink('web', website)}>
-            <Text>{website}</Text>
+            <Text style={styles.clickableText}>
+              <SimpleLineIcons name="globe" size={15} />
+              {`  ${website}`}
+            </Text>
           </TouchableHighlight>
-          <Markdown>{description}</Markdown>
-        </View>
-      </ScrollView>
+        )}
+        {address && (
+          <TouchableHighlight onPress={() => this.handleLink('map')}>
+            <Text style={styles.clickableText}>
+              <MaterialCommunityIcons name="map-marker" size={15} />
+              {`  ${address}`}
+            </Text>
+          </TouchableHighlight>
+        )}
+        <ScrollView scrollsToTop={false}>
+          {image && <Image source={image} style={{ resizeMode: 'contain', width: '100%', height: 300 }} />}
+          <Markdown>
+            {description}
+          </Markdown>
+        </ScrollView>
+      </View>
     );
   }
 }

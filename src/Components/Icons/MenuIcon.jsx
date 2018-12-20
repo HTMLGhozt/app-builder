@@ -11,14 +11,14 @@ import {
 
 const styles = StyleSheet.create({
   square: {
-    alignItems: 'center',
     display: 'flex',
     width: 100,
     height: 100,
     borderRadius: 8,
     borderWidth: 4,
     borderColor: 'white',
-    margin: '2%',
+    margin: '3%',
+    marginBottom: '5%',
     padding: 5,
   },
   title: {
@@ -33,12 +33,13 @@ class MenuIcon extends React.Component {
   buildIcon = () => {
     const { iconLibrary, iconName } = this.props;
     const IconElement = Icons[iconLibrary];
-    return <IconElement name={iconName} size={50} color="white" />;
+    return <IconElement style={{ alignSelf: 'center' }} name={iconName} size={50} color="white" />;
   }
 
   handlePress = () => {
     const { navigation, title } = this.props;
-    navigation.navigate(title);
+
+    navigation.navigate(title, { category: title });
   }
 
   render() {

@@ -34,5 +34,9 @@
   "About": {
     "iconName": "food-fork-drink",
     "iconLibrary": "MaterialCommunityIcons"
+  },
+  "Art" : {
+    "iconName": "palette",
+    "iconLibrary": "MaterialCommunityIcons"
   }
 }

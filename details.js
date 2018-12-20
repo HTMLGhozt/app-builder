@@ -1,6 +1,6 @@
-
+/* eslint-disable global-require */
 export const History = [{
-  name: 'History',
+  name: '\nHistory',
   description: `
     Discovery, 1877
 
@@ -41,11 +41,13 @@ export default [
       The Queen Mine Tour is one of the oldest in the nation, and certainly among the highest-rated, mixing history with adventure and lore. You'll wear the garb of the old miners and have a chance to see what true darkness means. You understand the tools that brought miners the sobrique "men or iron" and you'll visit the various work areas in your 75-minute visit underground.
       The Queen Mine Tour runs several times every day. [Click here] (http://queenminetour.com) to get more details. To make reservations, call (520) 432-2071. 
     `,
-    category: 'Dine',
+    category: 'Tours',
+    image: require('./assets/queen_mine.jpg'),
     website: 'http://queenminetour.com',
     address: '478 N Dart Rd, Bisbee, AZ 85603',
     phone: '1 (520) 432-2071',
     operationHours: 'Monday-Friday',
+    latLng: '31.4400073,-109.91240040000002',
   },
   {
     name: 'Mining and Historical Museum',
@@ -56,10 +58,13 @@ export default [
       
       The Museum is open every day from 10-4. For details, [click here](http://bisbeemuseum.org). For more information, call (520) 432-7071.
     `,
-    category: 'Dine',
+    category: 'Tours',
+    website: 'http://bisbeemuseum.org',
+    image: require('./assets/bisbee_museum.jpg'),
     address: '5 Copper Queen Plz, Bisbee, AZ 85603',
     phone: '1 (520) 432-7071',
     operationHours: '10-4 Monday-Friday',
+    latLng: '31.4421033,-109.91439430000003',
   },
   {
     name: 'Lavender Jeep Tours',
@@ -72,9 +77,12 @@ export default [
       
       Visit the [website here](http://lavenderjeeptours.com) or for reservations, call (520) 432-5369.
     `,
-    category: 'Dine',
+    category: 'Tours',
+    website: 'http://lavenderjeeptours.com/',
+    image: require('./assets/jeep_tour.jpg'),
     address: '11 Howell Ave, Bisbee, AZ 85603',
     phone: '1 (520) 432-5369',
     operationHours: '10-4 Monday-Friday',
+    latLng: '31.4424276,-109.91447110000001',
   },
 ];
