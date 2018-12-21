@@ -12,8 +12,10 @@ import {
 const styles = StyleSheet.create({
   square: {
     display: 'flex',
-    width: 100,
-    height: 100,
+    width: '24%',
+    height: '13%',
+    minWidth: 80,
+    minHeight: 95,
     borderRadius: 8,
     borderWidth: 4,
     borderColor: 'white',
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   title: {
-    fontSize: 19,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
