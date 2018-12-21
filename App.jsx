@@ -6,9 +6,9 @@ import SearchScreen from './src/Screens/SearchScreen';
 import ListBuilder from './src/Components/ListBuilder';
 import PageBuilder from './src/Components/PageBuilder';
 
-import details, { History } from './details';
+import details from './details';
 
-export const pages = ['Tours', 'Shop', 'Play', 'Services', 'Culture', 'Events', 'Dine', 'Visit', 'Art'];
+export const pages = ['Tours', 'History', 'Play', 'Services', 'Culture', 'Events', 'Dine', 'Visit', 'Art'];
 
 const routes = {
   Home: HomeScreen,
@@ -52,7 +52,6 @@ const AppStackNavigator = createStackNavigator(
 
 const AppNavigator = createBottomTabNavigator({
   Home: AppStackNavigator,
-  ...PageBuilder(History),
   Search: SearchScreen,
 }, {
   tabBarOptions: {

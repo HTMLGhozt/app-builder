@@ -35,8 +35,12 @@
     "iconName": "food-fork-drink",
     "iconLibrary": "MaterialCommunityIcons"
   },
-  "Art" : {
+  "Art": {
     "iconName": "palette",
     "iconLibrary": "MaterialCommunityIcons"
+  },
+  "History": {
+    "iconName": "open-book",
+    "iconLibrary": "Entypo"
   }
 }

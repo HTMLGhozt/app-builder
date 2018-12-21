@@ -12,6 +12,8 @@ import {
 const styles = StyleSheet.create({
   square: {
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '24%',
     height: '13%',
     minWidth: 80,
@@ -21,10 +23,9 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     margin: '3%',
     marginBottom: '5%',
-    padding: 5,
   },
   title: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
@@ -35,7 +36,14 @@ class MenuIcon extends React.Component {
   buildIcon = () => {
     const { iconLibrary, iconName } = this.props;
     const IconElement = Icons[iconLibrary];
-    return <IconElement style={{ alignSelf: 'center' }} name={iconName} size={50} color="white" />;
+    return (
+      <IconElement
+        style={{ alignSelf: 'center' }}
+        name={iconName}
+        size={50}
+        color="white"
+      />
+    );
   }
 
   handlePress = () => {
