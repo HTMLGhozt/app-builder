@@ -20,11 +20,9 @@ const styles = StyleSheet.create({
 
 class PageLinks extends React.PureComponent {
   formatURL = (type, url) => {
-    const {
-      page: { latLng, name },
-    } = this.props;
-
     if (type === 'address') {
+      const { latLng, name } = this.props;
+
       return Platform.select({
         ios: `maps:0,0?q=${name}@${latLng}`,
         android: `geo:0,0?q=${latLng}(${name})`,
@@ -73,14 +71,17 @@ class PageLinks extends React.PureComponent {
     return (
       <React.Fragment>
         { Object.entries(cardItems).map(([type, data]) => (
-          <TouchableHighlight
-            onPress={() => this.handleLink(this.formatURL(type, data))}
-          >
-            <Text style={styles.clickableText}>
-              {this.getIcon(type)}
-              {`  ${data}`}
-            </Text>
-          </TouchableHighlight>
+          data && (
+            <TouchableHighlight
+              key={type}
+              onPress={() => this.handleLink(this.formatURL(type, data))}
+            >
+              <Text style={styles.clickableText}>
+                {this.getIcon(type)}
+                {`  ${data}`}
+              </Text>
+            </TouchableHighlight>
+          )
         )) }
       </React.Fragment>
     );

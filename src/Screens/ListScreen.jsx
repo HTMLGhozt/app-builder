@@ -80,6 +80,7 @@ class ListScreen extends React.PureComponent {
           <View style={{ ...styles.overlay, opacity: 0.35 }} />
           <Text style={styles.title}>{title}</Text>
           <FlatList
+            keyExtractor={page => page}
             contentContainerStyle={{ flexGrow: 1 }}
             data={pages}
             renderItem={this.renderItem}

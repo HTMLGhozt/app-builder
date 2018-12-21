@@ -36,7 +36,7 @@ const PageScreen = ({ page }) => (
       website={page.website}
       address={page.address}
       phone={page.phone}
-      latLng={page.latLng}
+      latLng={page.latLng || null}
     />
     <ScrollView scrollsToTop={false}>
       {page.image && (
